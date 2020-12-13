@@ -45,6 +45,7 @@ function useAsync(callback, deps = [], skip = false) {
   useEffect(() => {
     if (skip) return;
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
   return [state, fetchData];
