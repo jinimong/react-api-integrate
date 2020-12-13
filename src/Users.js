@@ -10,12 +10,12 @@ async function getUsers() {
 }
 
 function Users() {
-  const [state, refetch] = useAsync(getUsers, []);
+  const [state, refetch] = useAsync(getUsers, [], true);
   const { loading, data: users, error } = state;
 
   if (loading) return <div>Loading ...</div>;
   if (error) return <dir>Error !!!</dir>;
-  if (!users) return null;
+  if (!users) return <button onClick={refetch}>Load</button>;
   return (
     <>
       <ul>
